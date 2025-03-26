@@ -31,7 +31,7 @@ public class Main {
         long startTime = System.nanoTime();
         int minResult = minElementInArray(arr, size);
         long endTime = System.nanoTime();
-        long duration = (endTime - startTime) / 1000000; // nanoseconds to milliseconds
+        long duration = (endTime - startTime) / 1000000; //  nanoseconds to milliseconds
         System.out.println("Minimum element of the array: " + minResult);
         System.out.println("Time taken: " + duration + " milliseconds");
     }
