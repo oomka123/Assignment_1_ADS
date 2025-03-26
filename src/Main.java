@@ -47,6 +47,19 @@ public class Main {
         return true;
     }
 
+    /**
+     * Computes the factorial of a number recursively.
+     *
+     * @param num The number.
+     * @return The factorial of the number.
+     *
+     * Time Complexity: O(n) - n recursive calls.
+     */
+    public static int fact(int num) {
+        if (num == 1) return 1;
+        return num * fact(num - 1);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -89,7 +102,16 @@ public class Main {
         startTime = System.currentTimeMillis();
         System.out.println("Number " + primeNum + (isPrime(primeNum) ? " is Prime" : " is Composite"));
         endTime = System.currentTimeMillis();
-        System.out.println("Time taken: " + (endTime - startTime) + "ms");
+        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+
+        // Factorial Calculation
+        System.out.print("Enter a number to calculate the factorial: ");
+        int factNum = sc.nextInt();
+        startTime = System.currentTimeMillis();
+        int factResult = fact(factNum);
+        endTime = System.currentTimeMillis();
+        System.out.println("Factorial " + factNum + " equals " + factResult);
+        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
     }
 }
 
