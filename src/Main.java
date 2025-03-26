@@ -31,6 +31,22 @@ public class Main {
         return nums[length - 1] + sumInArray(nums, length - 1);
     }
 
+    /**
+     * Checks if a number is prime.
+     *
+     * @param num The number to check.
+     * @return True if the number is prime, otherwise false.
+     *
+     * Time Complexity: O(sqrt(n)) - We only check divisibility up to sqrt(n).
+     */
+    public static boolean isPrime(int num) {
+        if (num < 2) return false;
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -38,7 +54,8 @@ public class Main {
         System.out.print("Enter the size of the array: ");
         int size = sc.nextInt();
         int[] arr = new int[size];
-        System.out.println("Enter the array elements: ");
+        System.out.print("Enter the array elements: ");
+
         for (int i = 0; i < size; i++) {
             arr[i] = sc.nextInt();
         }
@@ -50,10 +67,11 @@ public class Main {
         System.out.println("Time taken: " + duration + " milliseconds");
 
         // Sum of elements in array
-        int[] arr2 = new int[size];
-        System.out.println("Enter the size of the array: ");
+        System.out.print("Enter the size of the array: ");
         int size2 = sc.nextInt();
-        System.out.println("Enter the array elements again: ");
+        int[] arr2 = new int[size];
+        System.out.print("Enter the array elements for sum: ");
+
         for (int i = 0; i < size; i++) {
             arr2[i] = sc.nextInt();
         }
@@ -64,6 +82,14 @@ public class Main {
         duration = (endTime - startTime);
         System.out.println("The sum of the array elements: " + sumResult);
         System.out.println("Time taken: " + duration + " milliseconds");
+
+        // Checks whether a number is prime or not
+        System.out.print("Enter a number to check for simplicity: ");
+        int primeNum = sc.nextInt();
+        startTime = System.currentTimeMillis();
+        System.out.println("Number " + primeNum + (isPrime(primeNum) ? " is Prime" : " is Composite"));
+        endTime = System.currentTimeMillis();
+        System.out.println("Time taken: " + (endTime - startTime) + "ms");
     }
 }
 
