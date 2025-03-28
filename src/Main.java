@@ -115,6 +115,18 @@ public class Main {
         return isAllDigit(str, index + 1);
     }
 
+    /**
+     * This method computes the binomial coefficient recursively.
+     * Time complexity: O(2^n), exponential due to overlapping subproblems.
+     * @param m The number of elements.
+     * @param k The chosen subset size.
+     * @return The binomial coefficient C(m, k).
+     */
+    public static int binomialCoefficient(int m, int k) {
+        if (k == 0 || k == m) return 1;
+        return binomialCoefficient(m - 1, k - 1) + binomialCoefficient(m - 1, k);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -214,12 +226,29 @@ public class Main {
         System.out.print("Enter a string to check if it contains only digits: ");
         String inputStr = sc.next();
         char[] charArray = inputStr.toCharArray();
+
         startTime = System.currentTimeMillis();
         boolean isDigitOnly = isAllDigit(charArray, 0);
         endTime = System.currentTimeMillis();
+
         System.out.println("The string \"" + inputStr + "\" contains only digits: " + isDigitOnly);
         System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+
+        // Calculation of the binomial coefficient
+        System.out.print("Enter m for binomial coefficient C(m, k): ");
+        int m = sc.nextInt();
+        System.out.print("Enter k for binomial coefficient C(m, k): ");
+        int k = sc.nextInt();
+
+        startTime = System.currentTimeMillis();
+        int binomialResult = binomialCoefficient(m, k);
+        endTime = System.currentTimeMillis();
+
+        System.out.println("Binomial coefficient C(" + m + ", " + k + ") = " + binomialResult);
+        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds\n");
     }
+
+
 }
 
 
