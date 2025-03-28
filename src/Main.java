@@ -59,6 +59,18 @@ public class Main {
         return num * fact(num - 1);
     }
 
+    /**
+     * This method computes the nth Fibonacci number recursively.
+     * Time complexity: O(2^n), exponential time due to repeated calculations.
+     * @param num The position of the Fibonacci number.
+     * @return The Fibonacci number at the given position.
+     */
+    public static int fibonacci(int num) {
+        if (num == 0) return 0;
+        if (num == 1) return 1;
+        return fibonacci(num - 1) + fibonacci(num - 2);
+    }
+
 
 
     public static void main(String[] args) {
@@ -112,6 +124,15 @@ public class Main {
         int factResult = fact(factNum);
         endTime = System.currentTimeMillis();
         System.out.println("Factorial " + factNum + " equals " + factResult);
+        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+
+        // Fibonacci Calculation
+        System.out.print("Enter a number to calculate the fibonacci: ");
+        int fibNum = sc.nextInt();
+        startTime = System.currentTimeMillis();
+        int fibResult = fibonacci(fibNum);
+        endTime = System.currentTimeMillis();
+        System.out.println("Fibonacci " + fibNum + " equals " + fibResult);
         System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
     }
 }
