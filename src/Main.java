@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class Main {
 
     /**
-     * Finds the minimum element in an array recursively.
-     *
-     * @param nums   The array of integers.
-     * @param length The current length of the array being processed.
+     * This method finds the minimum element in an array recursively.
+     * It compares each element with the minimum found so far.
+     * Time complexity: O(n), where n is the number of elements in the array.
+     * The algorithm processes each element once, leading to linear time complexity.
+     * @param nums The array of integers.
+     * @param length The length of the array.
      * @return The minimum element in the array.
-     *
-     * Time Complexity: O(n) - Each element is checked once.
      */
     public static int minElementInArray(int[] nums, int length) {
         if (length == 1) return nums[0];
@@ -18,26 +18,26 @@ public class Main {
     }
 
     /**
-     * Calculates the sum of all elements in an array recursively.
-     *
-     * @param nums   The array of integers.
-     * @param length The current length of the array being processed.
-     * @return The sum of the array elements.
-     *
-     * Time Complexity: O(n) - Each element is added once.
+     * This method calculates the sum of array elements recursively.
+     * The sum is computed by adding each element to the sum of the rest.
+     * Time complexity: O(n), where n is the number of elements in the array.
+     * The algorithm visits each element once, leading to linear complexity.
+     * @param nums The array of integers.
+     * @param length The length of the array.
+     * @return The sum of all elements in the array.
      */
-    public static float sumInArray(int[] nums, int length) {
+    public static float avarageInArray(int[] nums, int length) {
         if (length == 1) return nums[0];
-        return nums[length - 1] + sumInArray(nums, length - 1);
+        return nums[length - 1] + avarageInArray(nums, length - 1);
     }
 
     /**
-     * Checks if a number is prime.
-     *
+     * Determines if a given number is prime.
+     * A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+     * The method checks divisibility starting from 2 up to sqrt(n).
+     * Time Complexity: O(sqrt(n)) - We only check divisibility up to the square root of n,
      * @param num The number to check.
      * @return True if the number is prime, otherwise false.
-     *
-     * Time Complexity: O(sqrt(n)) - We only check divisibility up to sqrt(n).
      */
     public static boolean isPrime(int num) {
         if (num < 2) return false;
@@ -48,17 +48,18 @@ public class Main {
     }
 
     /**
-     * Computes the factorial of a number recursively.
-     *
-     * @param num The number.
-     * @return The factorial of the number.
-     *
-     * Time Complexity: O(n) - n recursive calls.
+     * This method calculates the factorial of a given number using recursion.
+     * Time complexity: O(n), where n is the input number.
+     * The recursive function calls itself n times, leading to linear complexity.
+     * @param num The number for which the factorial is to be calculated.
+     * @return The factorial of the given number.
      */
     public static int fact(int num) {
         if (num == 1) return 1;
         return num * fact(num - 1);
     }
+
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -90,7 +91,7 @@ public class Main {
         }
 
         startTime = System.currentTimeMillis();
-        float sumResult = sumInArray(arr2, size2);
+        float sumResult = avarageInArray(arr2, size2);
         endTime = System.currentTimeMillis();
         duration = (endTime - startTime);
         System.out.println("The sum of the array elements: " + sumResult);
