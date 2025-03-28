@@ -127,6 +127,18 @@ public class Main {
         return binomialCoefficient(m - 1, k - 1) + binomialCoefficient(m - 1, k);
     }
 
+    /**
+     * This method computes the Greatest Common Divisor (GCD) using the Euclidean algorithm.
+     * Time complexity: O(log n), as each step reduces the problem size significantly.
+     * @param a First number.
+     * @param b Second number.
+     * @return The GCD of a and b.
+     */
+    public static int gcd(int a, int b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -140,10 +152,10 @@ public class Main {
             arr[i] = sc.nextInt();
         }
 
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         int minResult = minElementInArray(arr, size);
-        long endTime = System.currentTimeMillis();
-        long duration = (endTime - startTime);
+        long endTime = System.nanoTime();
+        double duration = (endTime - startTime) / 1_000_000.0;
 
         System.out.println("Minimum element of the array: " + minResult);
         System.out.println("Time taken: " + duration + " milliseconds");
@@ -151,17 +163,17 @@ public class Main {
         // Sum of elements in array
         System.out.print("Enter the size of the array: ");
         int size2 = sc.nextInt();
-        int[] arr2 = new int[size];
+        int[] arr2 = new int[size2];
         System.out.print("Enter the array elements for sum: ");
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size2; i++) {
             arr2[i] = sc.nextInt();
         }
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         float sumResult = avarageInArray(arr2, size2);
-        endTime = System.currentTimeMillis();
-        duration = (endTime - startTime);
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / 1_000_000.0;
 
         System.out.println("The sum of the array elements: " + sumResult);
         System.out.println("Time taken: " + duration + " milliseconds");
@@ -170,33 +182,36 @@ public class Main {
         System.out.print("Enter a number to check for simplicity: ");
         int primeNum = sc.nextInt();
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         System.out.println("Number " + primeNum + (isPrime(primeNum) ? " is Prime" : " is Composite"));
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / 1_000_000.0;
 
-        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+        System.out.println("Time taken: " + duration + " milliseconds");
 
         // Factorial Calculation
         System.out.print("Enter a number to calculate the factorial: ");
         int factNum = sc.nextInt();
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         int factResult = fact(factNum);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / 1_000_000.0;
 
         System.out.println("Factorial " + factNum + " equals " + factResult);
-        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+        System.out.println("Time taken: " + duration + " milliseconds");
 
         // Fibonacci Calculation
         System.out.print("Enter a number to calculate the fibonacci: ");
         int fibNum = sc.nextInt();
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         int fibResult = fibonacci(fibNum);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / 1_000_000.0;
 
         System.out.println("Fibonacci " + fibNum + " equals " + fibResult);
-        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+        System.out.println("Time taken: " + duration + " milliseconds");
 
         // Exponentiation of a number
         System.out.print("Enter the base number: ");
@@ -204,35 +219,38 @@ public class Main {
         System.out.print("Enter the exponent: ");
         int exponent = sc.nextInt();
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         int powerResult = powerOf(base, exponent);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / 1_000_000.0;
 
         System.out.println(base + " raised to the power of " + exponent + " equals " + powerResult);
-        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+        System.out.println("Time taken: " + duration + " milliseconds");
 
         // Reading the array and outputting it in reverse order
         System.out.print("Enter the number of elements in the array: ");
         int n = sc.nextInt();
         System.out.println("Enter " + n + " elements:");
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         reverseArray(n, sc);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / 1_000_000.0;
 
-        System.out.println("\nTime taken: " + (endTime - startTime) + " milliseconds");
+        System.out.println("\nTime taken: " + duration + " milliseconds");
 
         // Checking if a string consists of only numbers
         System.out.print("Enter a string to check if it contains only digits: ");
         String inputStr = sc.next();
         char[] charArray = inputStr.toCharArray();
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         boolean isDigitOnly = isAllDigit(charArray, 0);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / 1_000_000.0;
 
         System.out.println("The string \"" + inputStr + "\" contains only digits: " + isDigitOnly);
-        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+        System.out.println("Time taken: " + duration + " milliseconds");
 
         // Calculation of the binomial coefficient
         System.out.print("Enter m for binomial coefficient C(m, k): ");
@@ -240,15 +258,28 @@ public class Main {
         System.out.print("Enter k for binomial coefficient C(m, k): ");
         int k = sc.nextInt();
 
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         int binomialResult = binomialCoefficient(m, k);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / 1_000_000.0;
 
         System.out.println("Binomial coefficient C(" + m + ", " + k + ") = " + binomialResult);
-        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds\n");
+        System.out.println("Time taken: " + duration + " milliseconds\n");
+
+        // Calculating the GCD
+        System.out.print("Enter first number for GCD: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number for GCD: ");
+        int b = sc.nextInt();
+
+        startTime = System.nanoTime();
+        int gcdResult = gcd(a, b);
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / 1_000_000.0;
+
+        System.out.println("GCD of " + a + " and " + b + " = " + gcdResult);
+        System.out.println("Time taken: " + duration + " milliseconds\n");
     }
-
-
 }
 
 
