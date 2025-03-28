@@ -71,6 +71,18 @@ public class Main {
         return fibonacci(num - 1) + fibonacci(num - 2);
     }
 
+    /**
+     * This method computes the power of a number using recursion.
+     * Time complexity: O(n), where n is the exponent.
+     * The function calls itself power times, resulting in linear complexity.
+     * @param num The base number.
+     * @param power The exponent.
+     * @return The result of raising num to the given power.
+     */
+    public static int powerOf(int num, int power) {
+        if (power == 0) return 1;
+        return num * powerOf(num, power - 1);
+    }
 
 
     public static void main(String[] args) {
@@ -134,6 +146,18 @@ public class Main {
         endTime = System.currentTimeMillis();
         System.out.println("Fibonacci " + fibNum + " equals " + fibResult);
         System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+
+        // Exponentiation of a number
+        System.out.print("Enter the base number: ");
+        int base = sc.nextInt();
+        System.out.print("Enter the exponent: ");
+        int exponent = sc.nextInt();
+        startTime = System.currentTimeMillis();
+        int powerResult = powerOf(base, exponent);
+        endTime = System.currentTimeMillis();
+        System.out.println(base + " raised to the power of " + exponent + " equals " + powerResult);
+        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+
     }
 }
 
