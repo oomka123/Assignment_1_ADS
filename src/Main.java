@@ -84,6 +84,22 @@ public class Main {
         return num * powerOf(num, power - 1);
     }
 
+    /**
+     * This method reads and prints an array in reverse order recursively.
+     * Time complexity: O(n), where n is the number of elements in the array.
+     * Each element is processed once, leading to linear complexity.
+     * @param length The number of elements in the array.
+     * @param scanner Scanner to read input values.
+     */
+    public static void reverseArray(int length, Scanner scanner) {
+        if (length == 1) {
+            System.out.print(scanner.nextInt() + " ");
+            return;
+        }
+        int num = scanner.nextInt();
+        reverseArray(length - 1, scanner);
+        System.out.print(num + " ");
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -97,10 +113,12 @@ public class Main {
         for (int i = 0; i < size; i++) {
             arr[i] = sc.nextInt();
         }
+
         long startTime = System.currentTimeMillis();
         int minResult = minElementInArray(arr, size);
         long endTime = System.currentTimeMillis();
         long duration = (endTime - startTime);
+
         System.out.println("Minimum element of the array: " + minResult);
         System.out.println("Time taken: " + duration + " milliseconds");
 
@@ -118,32 +136,39 @@ public class Main {
         float sumResult = avarageInArray(arr2, size2);
         endTime = System.currentTimeMillis();
         duration = (endTime - startTime);
+
         System.out.println("The sum of the array elements: " + sumResult);
         System.out.println("Time taken: " + duration + " milliseconds");
 
         // Checks whether a number is prime or not
         System.out.print("Enter a number to check for simplicity: ");
         int primeNum = sc.nextInt();
+
         startTime = System.currentTimeMillis();
         System.out.println("Number " + primeNum + (isPrime(primeNum) ? " is Prime" : " is Composite"));
         endTime = System.currentTimeMillis();
+
         System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
 
         // Factorial Calculation
         System.out.print("Enter a number to calculate the factorial: ");
         int factNum = sc.nextInt();
+
         startTime = System.currentTimeMillis();
         int factResult = fact(factNum);
         endTime = System.currentTimeMillis();
+
         System.out.println("Factorial " + factNum + " equals " + factResult);
         System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
 
         // Fibonacci Calculation
         System.out.print("Enter a number to calculate the fibonacci: ");
         int fibNum = sc.nextInt();
+
         startTime = System.currentTimeMillis();
         int fibResult = fibonacci(fibNum);
         endTime = System.currentTimeMillis();
+
         System.out.println("Fibonacci " + fibNum + " equals " + fibResult);
         System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
 
@@ -152,11 +177,24 @@ public class Main {
         int base = sc.nextInt();
         System.out.print("Enter the exponent: ");
         int exponent = sc.nextInt();
+
         startTime = System.currentTimeMillis();
         int powerResult = powerOf(base, exponent);
         endTime = System.currentTimeMillis();
+
         System.out.println(base + " raised to the power of " + exponent + " equals " + powerResult);
         System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
+
+        // Reading the array and outputting it in reverse order
+        System.out.print("Enter the number of elements in the array: ");
+        int n = sc.nextInt();
+        System.out.println("Enter " + n + " elements:");
+
+        startTime = System.currentTimeMillis();
+        reverseArray(n, sc);
+        endTime = System.currentTimeMillis();
+
+        System.out.println("\nTime taken: " + (endTime - startTime) + " milliseconds");
 
     }
 }
