@@ -101,6 +101,20 @@ public class Main {
         System.out.print(num + " ");
     }
 
+    /**
+     * This method checks if a given character array represents a number.
+     * Time complexity: O(n), where n is the length of the character array.
+     * Each character is checked once, leading to linear complexity.
+     * @param str The character array.
+     * @param index The current index in the recursion.
+     * @return True if all characters are digits, false otherwise.
+     */
+    public static boolean isAllDigit(char[] str, int index) {
+        if (index == str.length) return true;
+        if (!Character.isDigit(str[index])) return false;
+        return isAllDigit(str, index + 1);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -196,6 +210,15 @@ public class Main {
 
         System.out.println("\nTime taken: " + (endTime - startTime) + " milliseconds");
 
+        // Checking if a string consists of only numbers
+        System.out.print("Enter a string to check if it contains only digits: ");
+        String inputStr = sc.next();
+        char[] charArray = inputStr.toCharArray();
+        startTime = System.currentTimeMillis();
+        boolean isDigitOnly = isAllDigit(charArray, 0);
+        endTime = System.currentTimeMillis();
+        System.out.println("The string \"" + inputStr + "\" contains only digits: " + isDigitOnly);
+        System.out.println("Time taken: " + (endTime - startTime) + " milliseconds");
     }
 }
 
